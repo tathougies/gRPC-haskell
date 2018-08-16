@@ -55,7 +55,7 @@ sliceToByteString slice = do
   str <- grpcSliceStart slice
   putStrLn ("sliceToByteString: Got string of length " ++ show len ++ " at " ++ show str)
   v <- B.packCStringLen (str, len)
-  putStrLn ("sliceToByteString: gRPC reported a string of length " ++ show len ++ ", but the bytestring was " ++ show (B.length v))
+  putStrLn ("sliceToByteString: gRPC reported a string of length " ++ show len ++ ", but the bytestring was " ++ show (B.length v) ++ ": " ++ show v)
   return v
 
 -- | Copies a 'ByteString' to a 'Slice'.
